@@ -14,15 +14,27 @@ namespace Examen01_.Pages
         {
             PV_Examen01Entities pV_Examen01Entities = new PV_Examen01Entities();
 
-            gvProductos.DataSource = pV_Examen01Entities.Producto ;
+            gvProductos.DataSource = pV_Examen01Entities.Database;
             gvProductos.DataBind();
-
         }
 
-        protected void Unnamed1_Click(object sender, EventArgs e)
+        private void CargarProductos()
         {
-            Response.Redirect("~/Pages/CrearProducto.aspx");
+            using (PV_Examen01Entities db = new PV_Examen01Entities())
+            {
+                var productos = db.Producto.ToList();  // Convertimos a lista
+                gvProductos.DataSource = productos;
+                gvProductos.DataBind();
+            }
+        }
 
+        protected void btnNuevoProducto_Click(object sender, EventArgs e)
+        {
+            // Redirige a la página CrearProducto.aspx
+            Response.Redirect("~/Pages/CrearProducto.aspx");
         }
     }
+
+
+
 }
