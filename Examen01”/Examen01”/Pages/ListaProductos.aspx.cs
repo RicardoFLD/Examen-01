@@ -22,7 +22,7 @@ namespace Examen01_.Pages
         {
             using (PV_Examen01Entities db = new PV_Examen01Entities())
             {
-                var productos = db.Producto.ToList();  // Convertimos a lista
+                var productos = db.Producto.ToList();  
                 gvProductos.DataSource = productos;
                 gvProductos.DataBind();
             }
