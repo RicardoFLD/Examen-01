@@ -14,7 +14,7 @@ namespace Examen01_.Pages
         {
             PV_Examen01Entities pV_Examen01Entities = new PV_Examen01Entities();
 
-            gvProductos.DataSource = pV_Examen01Entities.Database;
+            gvProductos.DataSource = pV_Examen01Entities.Producto;
             gvProductos.DataBind();
         }
 
